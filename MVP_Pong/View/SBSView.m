@@ -6,33 +6,33 @@
 //  Copyright © 2019 Вова. All rights reserved.
 //
 
-#import "View.h"
+#import "SBSView.h"
 
-@implementation View 
+@implementation SBSView 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.presenter setGameField];
-    [self.presenter setStartGame];
+    [self.presenter gameField];
+    [self.presenter startGame];
 }
 
 -(void)showGameField: (UIColor *)backColor paddleColor: (UIColor *)paddleColor ballColor: (UIColor *)ballColor
 {
     self.view.backgroundColor = backColor;
     
-    self.topPaddle = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 30.0, 0.0, 60.0, 5.0)];
+    self.topPaddle = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame)/2 - 30.0, 0.0, 60.0, 5.0)];
     self.topPaddle.backgroundColor = paddleColor;
     [self.view addSubview: self.topPaddle];
     
-    self.bottomPaddle = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 30.0, self.view.frame.size.height - 5.0, 60.0, 5.0)];
+    self.bottomPaddle = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame)/2 - 30.0, self.view.frame.size.height - 5.0, 60.0, 5.0)];
     self.bottomPaddle.backgroundColor = paddleColor;
     [self.view addSubview: self.bottomPaddle];
     
     self.ball = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     self.ball.backgroundColor = ballColor;
     self.ball.layer.masksToBounds = YES;
-    self.ball.layer.cornerRadius = self.ball.frame.size.width / 2;
+    self.ball.layer.cornerRadius = CGRectGetWidth(self.ball.frame) / 2;
     [self.view addSubview: self.ball];
     
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -41,28 +41,6 @@
     [self.pauseButton setTitle:@"Пауза" forState:UIControlStateNormal];
     [self.pauseButton addTarget:self action:@selector(pauseGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: self.pauseButton];
-}
-
--(void)showStartGame: (double)speed
-{
-    [self.presenter setStartGame];
-}
-
--(void)showMoveBall
-{
-    [self.presenter setMoveBall];
-}
-
--(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = touches.anyObject;
-    CGPoint currentPoint = [touch locationInView:self.view];
-    [self.presenter setBottomPaddle: currentPoint];
-}
-
--(void)pauseGame
-{
-    [self.presenter setStopTimer];
     
     self.pauseScreen = [[UIView alloc] initWithFrame:CGRectMake(0, 0,CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     self.pauseScreen.backgroundColor = [UIColor greenColor];
@@ -95,6 +73,30 @@
     [self.pauseScreen addSubview: fastButton];
     
     [self.view addSubview:self.pauseScreen];
+    [self.pauseScreen setHidden:YES];
+}
+
+-(void)showStartGame: (double)speed
+{
+    [self.presenter startGame];
+}
+
+-(void)showMoveBall
+{
+    [self.presenter moveBall];
+}
+
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = touches.anyObject;
+    CGPoint currentPoint = [touch locationInView:self.view];
+    [self.presenter placeBottomPaddle: currentPoint];
+}
+
+-(void)pauseGame
+{
+    [self.presenter stopTimer];
+    [self.pauseScreen setHidden:NO];
     [self addTransitionAnimation];
 }
 

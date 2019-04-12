@@ -13,9 +13,10 @@
 		A049E296224AC09500F60AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A049E295224AC09500F60AED /* Assets.xcassets */; };
 		A049E299224AC09500F60AED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A049E297224AC09500F60AED /* LaunchScreen.storyboard */; };
 		A049E29C224AC09500F60AED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E29B224AC09500F60AED /* main.m */; };
-		A049E2A4224E33F400F60AED /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E2A3224E33F400F60AED /* Model.m */; };
-		A049E2A7224E348E00F60AED /* Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E2A6224E348E00F60AED /* Presenter.m */; };
-		A049E2AA224E34BB00F60AED /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E2A9224E34BB00F60AED /* View.m */; };
+		A049E2A4224E33F400F60AED /* SBSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E2A3224E33F400F60AED /* SBSModel.m */; };
+		A049E2A7224E348E00F60AED /* SBSPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E2A6224E348E00F60AED /* SBSPresenter.m */; };
+		A049E2AA224E34BB00F60AED /* SBSView.m in Sources */ = {isa = PBXBuildFile; fileRef = A049E2A9224E34BB00F60AED /* SBSView.m */; };
+		A0D90F69225FDDED00BF405C /* SBSAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D90F68225FDDED00BF405C /* SBSAssembly.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +30,14 @@
 		A049E298224AC09500F60AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A049E29A224AC09500F60AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A049E29B224AC09500F60AED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A049E2A2224E33F400F60AED /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		A049E2A3224E33F400F60AED /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		A049E2A5224E348E00F60AED /* Presenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presenter.h; sourceTree = "<group>"; };
-		A049E2A6224E348E00F60AED /* Presenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Presenter.m; sourceTree = "<group>"; };
-		A049E2A8224E34BB00F60AED /* View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
-		A049E2A9224E34BB00F60AED /* View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
+		A049E2A2224E33F400F60AED /* SBSModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSModel.h; sourceTree = "<group>"; };
+		A049E2A3224E33F400F60AED /* SBSModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBSModel.m; sourceTree = "<group>"; };
+		A049E2A5224E348E00F60AED /* SBSPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSPresenter.h; sourceTree = "<group>"; };
+		A049E2A6224E348E00F60AED /* SBSPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBSPresenter.m; sourceTree = "<group>"; };
+		A049E2A8224E34BB00F60AED /* SBSView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSView.h; sourceTree = "<group>"; };
+		A049E2A9224E34BB00F60AED /* SBSView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBSView.m; sourceTree = "<group>"; };
+		A0D90F67225FDDED00BF405C /* SBSAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSAssembly.h; sourceTree = "<group>"; };
+		A0D90F68225FDDED00BF405C /* SBSAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBSAssembly.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,10 @@
 		A049E280224AC09400F60AED = {
 			isa = PBXGroup;
 			children = (
+				A0D90F6A2260741B00BF405C /* Assembly */,
+				A0D90F66225FC1C000BF405C /* Model */,
+				A0D90F65225FC1B300BF405C /* View */,
+				A0D90F64225FC19D00BF405C /* Presenter */,
 				A049E28B224AC09400F60AED /* Pong */,
 				A049E28A224AC09400F60AED /* Products */,
 			);
@@ -76,14 +83,44 @@
 				A049E297224AC09500F60AED /* LaunchScreen.storyboard */,
 				A049E29A224AC09500F60AED /* Info.plist */,
 				A049E29B224AC09500F60AED /* main.m */,
-				A049E2A2224E33F400F60AED /* Model.h */,
-				A049E2A3224E33F400F60AED /* Model.m */,
-				A049E2A5224E348E00F60AED /* Presenter.h */,
-				A049E2A6224E348E00F60AED /* Presenter.m */,
-				A049E2A8224E34BB00F60AED /* View.h */,
-				A049E2A9224E34BB00F60AED /* View.m */,
 			);
 			path = Pong;
+			sourceTree = "<group>";
+		};
+		A0D90F64225FC19D00BF405C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A049E2A5224E348E00F60AED /* SBSPresenter.h */,
+				A049E2A6224E348E00F60AED /* SBSPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A0D90F65225FC1B300BF405C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A049E2A8224E34BB00F60AED /* SBSView.h */,
+				A049E2A9224E34BB00F60AED /* SBSView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A0D90F66225FC1C000BF405C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A049E2A2224E33F400F60AED /* SBSModel.h */,
+				A049E2A3224E33F400F60AED /* SBSModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0D90F6A2260741B00BF405C /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				A0D90F68225FDDED00BF405C /* SBSAssembly.m */,
+				A0D90F67225FDDED00BF405C /* SBSAssembly.h */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,12 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A049E2A7224E348E00F60AED /* Presenter.m in Sources */,
+				A049E2A7224E348E00F60AED /* SBSPresenter.m in Sources */,
 				A049E291224AC09400F60AED /* ViewController.m in Sources */,
-				A049E2AA224E34BB00F60AED /* View.m in Sources */,
+				A049E2AA224E34BB00F60AED /* SBSView.m in Sources */,
+				A0D90F69225FDDED00BF405C /* SBSAssembly.m in Sources */,
 				A049E29C224AC09500F60AED /* main.m in Sources */,
 				A049E28E224AC09400F60AED /* AppDelegate.m in Sources */,
-				A049E2A4224E33F400F60AED /* Model.m in Sources */,
+				A049E2A4224E33F400F60AED /* SBSModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

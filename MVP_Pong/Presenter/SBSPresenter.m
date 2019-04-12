@@ -6,12 +6,12 @@
 //  Copyright © 2019 Вова. All rights reserved.
 //
 
-#import "Presenter.h"
+#import "SBSPresenter.h"
 
 CGFloat dX = 1;
 CGFloat dY = 1;
 
-@interface Presenter()
+@interface SBSPresenter()
 
 @property (assign, nonatomic) double currentSpeed;
 @property (strong, nonatomic) NSTimer *gameTimer;
@@ -19,33 +19,33 @@ CGFloat dY = 1;
 
 @end
 
-@implementation Presenter
+@implementation SBSPresenter
 
--(id)initWithView: (View *)view withModel: (Model *)model
+-(instancetype)initWithView: (SBSView *)view andModel: (SBSModel *)model
 {
     if (self = [super init])
     {
-        self.passiveView = view;
-        self.model = model;
+        _passiveView = view;
+        _model = model;
     }
     return self;
 }
 
--(void)setGameField
+-(void)gameField
 {
     self.topScore = 0;
     self.bottomScore = 0;
     [self.passiveView showGameField:self.model.gameBackgroundColor paddleColor:self.model.paddleColor ballColor: self.model.ballColor];
 }
 
--(void)setStartGame
+-(void)startGame
 {
     self.passiveView.ball.center = self.passiveView.view.center;
     self.currentSpeed = 0.005f;
     self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:self.currentSpeed target:self.passiveView selector:@selector(showMoveBall) userInfo:nil repeats:YES];
 }
 
--(void)setMoveBall
+-(void)moveBall
 {
     // Простейшая проверка, чтобы topPaddle не уезжал за границы экрана
     if (self.passiveView.ball.center.x >= self.passiveView.view.frame.size.width - 30.0)
@@ -89,7 +89,7 @@ CGFloat dY = 1;
     
 }
 
--(void)setBottomPaddle: (CGPoint)currentPoint
+-(void)placeBottomPaddle: (CGPoint)currentPoint
 {
     // Простейшая проверка, чтобы bottomPaddle не уезжал за границы экрана
     if (currentPoint.x >= self.passiveView.view.frame.size.width - 30.0)
@@ -106,7 +106,7 @@ CGFloat dY = 1;
     }
 }
 
--(void)setStopTimer
+-(void)stopTimer
 {
     self.savePoint = self.passiveView.ball.center;
     [self.gameTimer invalidate];
@@ -117,14 +117,14 @@ CGFloat dY = 1;
 {
     if (reset)
     {
-        [self setStopTimer];
+        [self stopTimer];
         self.passiveView.ball.center = self.passiveView.view.center;
         dY *= -1;
         dX *= -1;
     }
     else
     {
-        [self.passiveView.pauseScreen removeFromSuperview];
+        [self.passiveView.pauseScreen setHidden:YES];
         self.passiveView.ball.center = self.savePoint;
         [self.passiveView addTransitionAnimation];
     }

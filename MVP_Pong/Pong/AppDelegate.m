@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Model.h"
-#import "Presenter.h"
-#import "View.h"
+#import "SBSAssembly.h"
 
 @interface AppDelegate ()
 
@@ -20,13 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    Model *model = [[Model alloc] initWithColor:[UIColor blackColor] paddleColor:[UIColor redColor] ballColor:[UIColor purpleColor]];
-    View *view = [[View alloc] init];
-    Presenter *presenter = [[Presenter alloc] initWithView:view withModel:model];
-    view.presenter = presenter;
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = view;
+    self.window.rootViewController = [SBSAssembly createDependency];
     [self.window makeKeyAndVisible];
     
     return YES;

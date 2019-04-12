@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "Presenter.h"
+#import "SBSPresenter.h"
 
-@class Presenter;
+@class SBSPresenter;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,18 +23,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface View : UIViewController <ViewProtocol>
+@interface SBSView : UIViewController <ViewProtocol>
 
 @property (strong, nonatomic) UIView *topPaddle;
 @property (strong, nonatomic) UIView *bottomPaddle;
 @property (strong, nonatomic) UIView *ball;
 @property (strong, nonatomic) UIView *pauseScreen;
 @property (strong, nonatomic) UIButton *pauseButton;
-@property (strong, nonatomic) Presenter *presenter;
+@property (strong, nonatomic) SBSPresenter *presenter;
 
--(void)showGameField: (UIColor *)backColor paddleColor: (UIColor *)paddleColor ballColor: (UIColor *)ballColor;
--(void)showStartGame: (double)speed;
--(void)showMoveBall;
 -(void)addTransitionAnimation;
 
 @end
